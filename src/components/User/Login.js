@@ -4,7 +4,7 @@ import Header from '../Home/Header';
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Form, Segment } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom';
-import Info from './Info'
+
 
 class Login extends React.Component {
   render() {

@@ -22,7 +22,7 @@ class MainHeader extends Component {
           <Menu.Item
             name='Login' 
             active={activeItem === 'login'}
-            onClick={this.handleItemClick}
+            onClick={e => this.handleRedirect('/login')}
           />
           <Menu.Item
             name='Register' 
