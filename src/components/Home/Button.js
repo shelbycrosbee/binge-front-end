@@ -1,11 +1,17 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+
+
 
 
 function Button( props ){
+  const redirect = (route) => {
+    props.history.push(route)
+  }
 
   return(
-    <button>{ props.text }</button>
+    <button onClick={e => redirect(props.redirect)}>{ props.text }</button>
   )
 }
 
-export default Button;
+export default withRouter(Button);

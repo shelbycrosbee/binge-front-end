@@ -1,30 +1,39 @@
-import React, { Component } from 'react'
-import { Menu, Segment } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Menu, Segment, Header } from 'semantic-ui-react';
+import "./index.css";
+import Logo from "./Logo";
+import {withRouter} from 'react-router-dom';
 
-export default class MenuExampleInvertedSecondary extends Component {
+class MainHeader extends Component {
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleRedirect = (route) => this.props.history.push(route)
 
   render() {
     const { activeItem } = this.state
 
     return (
-      <Segment inverted>
-        <Menu inverted pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+      
+      <Segment inverted clearing>
+        <Header >
+          <Logo className="logo" width='70px'/>
+        <Menu floated='right' inverted pointing secondary>
           <Menu.Item
-            name='messages'
-            active={activeItem === 'messages'}
+            name='Login' 
+            active={activeItem === 'login'}
             onClick={this.handleItemClick}
           />
           <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={this.handleItemClick}
+            name='Register' 
+            active={activeItem === 'register'}
+            onClick={e => this.handleRedirect('/register')}
           />
         </Menu>
+        </Header>
       </Segment>
     )
   }
 }
+
+export default withRouter(MainHeader);

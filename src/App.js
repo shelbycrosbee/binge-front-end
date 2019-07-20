@@ -1,17 +1,32 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home/Home'
-import OtherMap from './components/Map/OtherMap'
+import { Route, withRouter, Switch } from 'react-router-dom'
+import Yes from './components/Home/Yes';
+import No from './components/Home/No';
+import Register from './components/User/Register';
+import Login from './components/User/Login'
+
 
 
 class App extends React.Component {
+
+
   render() {
+
+    
+
     return (
       <div>
-        <Home />
-        <OtherMap />
+        <Switch>
+        <Route path="/yes" component={Yes}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/no" component={No}/>
+        <Route path="/register" component={Register}/>
+        <Route path="/login" component={Login} />
+        </Switch>
       </div>
     );
   }
 }
-export default App;
+export default withRouter(App);
