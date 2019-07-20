@@ -1,15 +1,16 @@
 import React from 'react'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import axios from 'axios';
 
 
 
 class HospitalsMap extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       hospitals: [
 
-      ] 
+      ]
     }
   }
 
@@ -18,20 +19,22 @@ class HospitalsMap extends React.Component {
       params: {
         app_id: 'm7oaMKyzvBVSCbZkqVNh',
         app_code: "wz6uMQMRHOibXv9XZSR6lg",
-        at: '45.6796,-111.0363', 
+        at: '45.6796,-111.0363', //user geolocation
         cat: 'hospital-health-care-facility'
 
       }
     })
       .then(response => {
-        console.log(results.items.position);
-        let hospitals = response.items.position.map((hospital, i) => {
+        // console.log(response.data.results);
+        let hospitals = response.data.results.items.map((hospital, i) => {
           return {
             id: i,
-            title: `${hospital.title} ${hospital.position}`,
+            position: hospital.position,
+            title: `${hospital.title}`,
           }
         })
         this.setState({ hospitals })
+        // console.log(this.state.hospitals[1].position)
       })
       .catch(function (error) {
         console.log(error);
@@ -39,9 +42,17 @@ class HospitalsMap extends React.Component {
   }
 
   render() {
+    const loc = this.state.hospitals.map(i => {
+      return (<Marker position={i.position}>
+        <Popup>
+          {i.title}
+        </Popup>
+      </Marker>
+      )
+    })
     return (
       <LeafletMap
-        center={[45.7770, -110.9429]}
+        center={[45.7770, -110.9429]} //user geolocation
         zoom={6}
         maxZoom={20}
         attributionControl={true}
@@ -55,11 +66,7 @@ class HospitalsMap extends React.Component {
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
-        <Marker position={[45.6796, -111.0363]}>
-          <Popup>
-            Popup for any custom information.
-          </Popup>
-        </Marker>
+        {loc}
       </LeafletMap>
     );
   }

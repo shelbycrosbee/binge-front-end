@@ -1,7 +1,8 @@
 import React from 'react';
-import OtherMap from '../Map/OtherMap';
+import HospitalsMap from '../Map/HospitalsMap';
 import Header from '../Home/Header';
-import { ReactLeafletSearch } from 'react-leaflet-search';
+
+
 
 
 class Yes extends React.Component {
@@ -13,7 +14,7 @@ render(){
     <div>
     <Header/>
 
-    <OtherMap />
+    <HospitalsMap />
     </div>
   );
 }
