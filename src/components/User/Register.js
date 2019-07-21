@@ -5,9 +5,13 @@ import 'semantic-ui-css/semantic.min.css';
 import { Button, Form, Segment, Icon } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom';
 import Info from './Info'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import * as Actions from '../../redux/action'
 
 class Register extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         <Header />
@@ -29,4 +33,18 @@ class Register extends React.Component {
     );
   }
 }
-export default withRouter(Register);
+
+const mapStateToProps = (state, props) => {
+  return {
+    ...state, 
+    user: state.userReducer
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return (
+    bindActionCreators(Actions, dispatch)
+    )
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
