@@ -2,12 +2,18 @@ import React from 'react';
 import Btn from '../Home/Button';
 import Header from '../Home/Header';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Form, Segment, Icon } from 'semantic-ui-react'
-import {withRouter} from 'react-router-dom';
+import {
+  Button,
+  Form,
+  Segment
+} from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom';
 import Info from './Info'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/action'
+
+
 
 class Register extends React.Component {
   render() {
@@ -18,17 +24,17 @@ class Register extends React.Component {
         <Segment inverted>
           <Form inverted>
             <Form.Group widths='equal'>
-              <Form.Input fluid label='Email' placeholder='Email' />
-              <Form.Input fluid label='Username' placeholder='Username' />
-              <Form.Input fluid label='Password' placeholder='Password' />
+              <Form.Input fluid label='email' placeholder='Email' />
+              <Form.Input fluid label='username' placeholder='Username' />
+              <Form.Input fluid label='password' placeholder='Password' />
             </Form.Group>
             <Form.Checkbox label='I agree to the Terms and Conditions' />
-            <Info/>
-            <Button type='submit'>Submit</Button>
+            <Info />
+            <Button type='submit' onSubmit={this.props.userRegister}>Submit</Button>
             <Btn text='Cancel' redirect={"/"} />
           </Form>
         </Segment>
-        
+
       </div>
     );
   }
@@ -36,7 +42,7 @@ class Register extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    ...state, 
+    ...state,
     user: state.userReducer
   }
 }
@@ -44,7 +50,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = dispatch => {
   return (
     bindActionCreators(Actions, dispatch)
-    )
+  )
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
