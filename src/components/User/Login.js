@@ -2,11 +2,31 @@ import React from 'react';
 import Btn from '../Home/Button';
 import Header from '../Home/Header';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Form, Segment } from 'semantic-ui-react'
+import { 
+  Button, 
+  Form, 
+  Segment 
+} from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom';
 
 
 class Login extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      email: '', 
+      password: '',
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+  handleSubmit = () => {
+    this.props.userRegister(this.state);
+    this.props.history.push('/')
+  }
   render() {
     return (
       <div>
@@ -14,10 +34,10 @@ class Login extends React.Component {
         <Segment inverted>
           <Form inverted>
             <Form.Group widths='equal'>
-              <Form.Input fluid label='Username' placeholder='Username' />
-              <Form.Input fluid label='Password' placeholder='Password' />
+              <Form.Input fluid label='Email' placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange}/>
+              <Form.Input fluid label='Password' placeholder='Password' name='password' value={this.state.password} onChange={this.handleChange}/>
             </Form.Group>
-            <Button type='submit'>Submit</Button>
+            <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
             <Btn text='Cancel' redirect={"/"} />
           </Form>
         </Segment>
@@ -26,4 +46,18 @@ class Login extends React.Component {
     );
   }
 }
-export default withRouter(Login);
+
+const mapStateToProps = (state, props) => {
+  return {
+    ...state,
+    user: state.userReducer
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return (
+    bindActionCreators(Actions, dispatch)
+  )
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

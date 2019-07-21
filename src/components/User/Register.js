@@ -16,21 +16,38 @@ import * as Actions from '../../redux/action'
 
 
 class Register extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      username: '', 
+      email: '', 
+      password: '',
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+  handleSubmit = () => {
+    this.props.userRegister(this.state);
+    this.props.history.push('/')
+  }
+
   render() {
-    console.log(this.props)
     return (
       <div>
         <Header />
         <Segment inverted>
           <Form inverted>
             <Form.Group widths='equal'>
-              <Form.Input fluid label='email' placeholder='Email' />
-              <Form.Input fluid label='username' placeholder='Username' />
-              <Form.Input fluid label='password' placeholder='Password' />
+              <Form.Input fluid label='email' name='email' value={this.state.email} onChange={this.handleChange} placeholder='Email' />
+              <Form.Input fluid label='username' name='username' value={this.state.username} onChange={this.handleChange} placeholder='Username' />
+              <Form.Input fluid label='password' type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='Password' />
             </Form.Group>
             <Form.Checkbox label='I agree to the Terms and Conditions' />
             <Info />
-            <Button type='submit' onSubmit={this.props.userRegister}>Submit</Button>
+            <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
             <Btn text='Cancel' redirect={"/"} />
           </Form>
         </Segment>
