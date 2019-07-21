@@ -8,6 +8,9 @@ import {
   Segment 
 } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as Actions from '../../redux/action'
 
 
 class Login extends React.Component {
