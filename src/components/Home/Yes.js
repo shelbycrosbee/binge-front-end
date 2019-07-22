@@ -1,23 +1,30 @@
 import React from 'react';
 import HospitalsMap from '../Map/HospitalsMap';
 import Header from '../Home/Header';
+import { Grid } from 'semantic-ui-react';
 
 
 
 
 class Yes extends React.Component {
 
-render(){
+  render() {
 
 
-  return(
-    <div>
-    <Header/>
+    return (
+      <div>
+        <Header />
+        <Grid>
+          <Grid.Column></Grid.Column>
+            <Grid.Column>
+            <HospitalsMap />
+            </Grid.Column>
+          <Grid.Column></Grid.Column>
+        </Grid>
 
-    <HospitalsMap />
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
 }
 

@@ -1,9 +1,6 @@
 import React from 'react';
-import Btn from '../Home/Button';
-import Header from '../Home/Header';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Form, Segment, Icon } from 'semantic-ui-react'
-import { withRouter } from 'react-router-dom';
+import {  Icon } from 'semantic-ui-react'
 
 class Info extends React.Component {
   constructor(props) {
@@ -35,9 +32,7 @@ class Info extends React.Component {
           onMouseEnter={this.handleMouseHover}
           onMouseLeave={this.handleMouseHover}
         />
-
         {this.state.isHovering && <div>Snitches get scratches! 🐱</div>}
-
       </div>
     );
   }

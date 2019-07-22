@@ -2,15 +2,22 @@ import React from 'react';
 import Button from './Button'
 import Header from './Header'
 import 'semantic-ui-css/semantic.min.css'
+import { Grid, GridColumn } from 'semantic-ui-react'
 
 class Home extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <h1>Are You Done Binging?!</h1>
-        <Button text='yes, help!' redirect={"/yes"} />
-        <Button text={`hell no \\m/ :P`} redirect={"/no"} />
+        <Grid textAlign='center'>
+          <Grid.Row>
+            <Grid.Column>
+              <h1>Are You Done Binging?!</h1>
+              <Button text='yes, help!' redirect={"/yes"} />
+              <Button text={`hell no \\m/ :P`} redirect={"/no"} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
