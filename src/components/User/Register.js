@@ -48,7 +48,8 @@ class Register extends React.Component {
             </Form.Group>
             <Grid padded>
               <Grid.Row>
-                <Form.Checkbox label='I agree to the Terms and Conditions' /><Info />
+                <Form.Checkbox label='I agree to the Terms and Conditions' />
+                <Info/>
               </Grid.Row>
             </Grid>
             <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
