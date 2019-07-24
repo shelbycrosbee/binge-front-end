@@ -1,29 +1,34 @@
 import { combineReducers } from "redux";
-import { TEST } from "./actionTypes";
+import { LOGIN } from "./actionTypes";
+
 
 const initialState = {
   user: null
 };
+const initialTokenState = {
+  token: null
+};
 
-const userReducer = function(state = initialState, action) {
+const tokenReducer = function (state = initialTokenState, action) {
   switch (action.type) {
-    case TEST: {
-      const { id, content } = action.payload;
+    case LOGIN: {
       return {
         ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            content,
-            completed: false
-          }
-        }
-      };
+        token: action.payload.token
+      }
     }
     default:
       return state;
   }
 }
 
-export default combineReducers({ userReducer });
+
+const userReducer = function (state = initialState, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+
+}
+
+export default combineReducers({ userReducer,  tokenReducer });

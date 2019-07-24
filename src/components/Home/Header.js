@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Segment, Header } from 'semantic-ui-react';
 import "./index.css";
 import Logo from "./Logo";
+import EditedLogo from "./EditiedLogo"
 import {withRouter} from 'react-router-dom';
 
 class MainHeader extends Component {
@@ -17,7 +18,7 @@ class MainHeader extends Component {
       
       <Segment inverted clearing>
         <Header >
-          <Logo className="logo" width='70px'/>
+          <EditedLogo className="logo" width='70px'/>
         <Menu floated='right' inverted pointing secondary>
           <Menu.Item
             name='Login' 
