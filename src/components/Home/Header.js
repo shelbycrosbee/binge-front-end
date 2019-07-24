@@ -17,7 +17,7 @@ class MainHeader extends Component {
       
       <Segment inverted clearing>
         <Header >
-          <Logo className="logo" width='70px'/>
+          <Logo className="logo" width='700px'/>
         <Menu floated='right' inverted pointing secondary>
           <Menu.Item
             name='Login' 

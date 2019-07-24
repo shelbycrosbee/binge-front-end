@@ -1,6 +1,7 @@
 import React from 'react'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import axios from 'axios';
+import UserLoc from './UserLoc'
 
 
 
@@ -42,6 +43,7 @@ class HospitalsMap extends React.Component {
   }
 
   render() {
+    console.log(UserLoc)
     const loc = this.state.hospitals.map(i => {
       return (<Marker position={i.position}>
         <Popup>
@@ -52,8 +54,8 @@ class HospitalsMap extends React.Component {
     })
     return (
       <LeafletMap
-        center={[45.7770, -110.9429]} //user geolocation
-        zoom={6}
+        center={[45.6796,-111.0363]} //user geolocation
+        zoom={15}
         maxZoom={20}
         attributionControl={true}
         zoomControl={true}
