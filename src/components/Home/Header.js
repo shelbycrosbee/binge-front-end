@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Segment, Header } from 'semantic-ui-react';
 import "./index.css";
-import Logo from "./Logo";
 import EditedLogo from "./EditiedLogo"
 import {withRouter} from 'react-router-dom';
 

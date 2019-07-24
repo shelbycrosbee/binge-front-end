@@ -34,7 +34,10 @@ import styled from 'styled-components';
     }
   render(){
     return(
-      <Wrapper width="1200px" height="720px" id="map" />
+      <Wrapper
+       width="1200px"
+        height="720px" 
+        id="map" />
     );
   }
 }

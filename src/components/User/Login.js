@@ -27,9 +27,9 @@ class Login extends React.Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    this.props.userRegister(this.state);
-    this.props.history.push('/')
+    this.props.userLogin(this.state, this.props.history);
   }
+
   render() {
     return (
       <div>
@@ -38,7 +38,7 @@ class Login extends React.Component {
           <Form inverted>
             <Form.Group widths='equal'>
               <Form.Input fluid label='Email' placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange}/>
-              <Form.Input fluid label='Password' placeholder='Password' name='password' value={this.state.password} onChange={this.handleChange}/>
+              <Form.Input fluid label='Password' type='password' placeholder='Password' name='password' value={this.state.password} onChange={this.handleChange}/>
             </Form.Group>
             <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
             <Btn text='Cancel' redirect={"/"} />

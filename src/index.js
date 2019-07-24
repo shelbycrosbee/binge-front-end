@@ -8,11 +8,18 @@ import {Provider} from 'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk';
 import rootReducer from './redux/reducer';
+import { save, load } from "redux-localstorage-simple"
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
-);
+const createStoreWithMiddleware 
+    = applyMiddleware(
+        thunk,
+        save() 
+    )(createStore)
+
+const store = createStoreWithMiddleware(
+  rootReducer,    
+  load() 
+)    
 
 ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 

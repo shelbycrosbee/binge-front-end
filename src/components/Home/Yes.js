@@ -14,12 +14,12 @@ class Yes extends React.Component {
     return (
       <div>
         <Header />
-        <Grid>
-          <Grid.Column></Grid.Column>
+        <Grid container columns={1}>
+          {/* <Grid.Column></Grid.Column> */}
             <Grid.Column>
             <HospitalsMap />
             </Grid.Column>
-          <Grid.Column></Grid.Column>
+          {/* <Grid.Column></Grid.Column> */}
         </Grid>
 
       </div>

@@ -9,7 +9,7 @@ class Home extends React.Component {
     return (
       <div>
         <Header />
-        <Grid textAlign='center'>
+        <Grid textAlign='center' container>
           <Grid.Row  >
             <Grid.Column>
               <h1>Are You Done Binging?!</h1>
