@@ -31,8 +31,8 @@ class Register extends React.Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    this.props.userRegister(this.state);
-    this.props.history.push('/')
+    this.props.userRegister(this.state, this.props.history);
+   
   }
 
   render() {
