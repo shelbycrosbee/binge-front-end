@@ -21,12 +21,12 @@ class MainHeader extends Component {
 
   render() {
     const { activeItem } = this.state
-    const username = this.props.userReducer['user']
+    const username = this.props.userReducer['username']
     if(username===null){
        var displayName = 'Login';
     } 
     else {
-      displayName = `logged in as ${this.props.userReducer['user']}`; 
+      displayName = `logged in as ${this.props.userReducer['username']}`; 
     }
 
     return (
@@ -59,7 +59,7 @@ class MainHeader extends Component {
 const mapStateToProps = (state, props) => {
   return {
     ...state,
-    user: state.userReducer
+    username: state.userReducer
   }
 }
 
