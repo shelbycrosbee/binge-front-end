@@ -65,7 +65,7 @@ class Register extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     ...state,
-    user: state.userReducer
+    username: state.userReducer
   }
 }
 

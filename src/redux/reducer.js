@@ -3,7 +3,7 @@ import { LOGIN } from "./actionTypes";
 
 
 const initialState = {
-  user: null
+  username: null
 };
 const initialTokenState = {
   token: null
@@ -28,7 +28,7 @@ const userReducer = function (state = initialState, action) {
     case LOGIN:{
       return {
         ...state,
-        user: action.payload.user
+        username: action.payload.username
       }
     }
     default:

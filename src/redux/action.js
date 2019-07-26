@@ -1,5 +1,6 @@
 import {
-  LOGIN
+  LOGIN,
+  ADD_LOCATION
 } from "./actionTypes";
 import axios from 'axios';
 
@@ -13,14 +14,14 @@ export function userRegister({ username, email, password }, history) {
         email,
         password
       })
-      if (loginResponse.data[1].token) {
+      if (loginResponse.data.token) {
         history.push('/')
       }
       dispatch({
         type: LOGIN,
         payload: {
-          token: `Bearer ${loginResponse.data[1].token}`,
-          user: loginResponse.data[0].username
+          token: `Bearer ${loginResponse.data.token}`,
+          username: loginResponse.data.user.username
         }
       })
     } catch (error) {
@@ -46,7 +47,7 @@ export function userLogin({ email, password, username }, history) {
         type: LOGIN,
         payload: {
           token: `Bearer ${loginResponse.data.token}`,
-          user: loginResponse.data.user.username
+          username: loginResponse.data.user.username
         }
       })
     } catch (error) {
@@ -56,4 +57,21 @@ export function userLogin({ email, password, username }, history) {
   }
 }
 
-
+export function addLocation({ lat, long }, username) {
+  return async function (dispatch, getState) {
+    try {
+      await axios.post('/login', {
+        lat,
+        long,
+        username
+      })
+      dispatch({
+        type: ADD_LOCATION,
+        payload: {}
+      })
+    } catch (error) {
+      console.log(error)
+      alert('Will you get your shit together Florida Man?')
+    }
+  }
+}
