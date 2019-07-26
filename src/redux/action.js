@@ -39,13 +39,14 @@ export function userLogin({ email, password, username }, history) {
         password,
         username
       })
-      if (loginResponse.data[0].token) {
+      if (loginResponse.data.token) {
         history.push('/')
       }
       dispatch({
         type: LOGIN,
         payload: {
-          token: `Bearer ${loginResponse.data[0].token}`
+          token: `Bearer ${loginResponse.data.token}`,
+          user: loginResponse.data.user.username
         }
       })
     } catch (error) {
