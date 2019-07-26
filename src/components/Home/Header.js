@@ -16,7 +16,8 @@ class MainHeader extends Component {
 
 
   handleLogout (e){
-    this.setState(localStorage.clear())
+    localStorage.clear(e);
+    window.location.reload()
   }
 
   render() {
@@ -40,16 +41,17 @@ class MainHeader extends Component {
             active={activeItem === 'login'}
             onClick={e => this.handleRedirect('/login')}
           />
+           <Menu.Item
+          name='logout'
+          active={activeItem === 'logout'}
+          onClick={e => this.handleLogout(e)}
+          />
           <Menu.Item
             name='register'
             active={activeItem === 'register'}
             onClick={e => this.handleRedirect('/register')}
           />
-          <Menu.Item
-          name='logout'
-          active={activeItem === 'logout'}
-          onClick={e => this.handleLogout}
-          />
+         
         </Menu>
         </Header>
       </Segment>
