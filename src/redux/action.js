@@ -52,19 +52,23 @@ export function userLogin({ email, password, username }, history) {
       })
     } catch (error) {
       console.log(error)
-      alert('Get your shit together Florida Man!')
+      alert('Get your shit together Florida Man! Have you considered Hippie-Dippie?')
     }
   }
 }
 
-export function addLocation({ lat, long }, username) {
+export function addLocation({ lat, lng }) {
   return async function (dispatch, getState) {
     try {
-      await axios.post('/login', {
+      const currentState = getState();
+      await axios.post('/location', {
         lat,
-        long,
-        username
-      })
+        long: lng
+      }, {
+          headers: {
+            authorization: currentState.tokenReducer.token
+          }
+        })
       dispatch({
         type: ADD_LOCATION,
         payload: {}

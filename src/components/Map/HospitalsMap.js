@@ -52,8 +52,8 @@ class HospitalsMap extends React.Component {
     })
     return (
       <LeafletMap
-        center={[45.7770, -110.9429]} //user geolocation
-        zoom={6}
+        center={[45.679201373144714, -111.04203131528274]} //user geolocation
+        zoom={13}
         maxZoom={20}
         attributionControl={true}
         zoomControl={true}

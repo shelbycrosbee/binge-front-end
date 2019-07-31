@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Segment, Header } from 'semantic-ui-react';
 import "./index.css";
-import EditedLogo from "./EditiedLogo"
+import EditedLogo from "./EditedLogo"
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
