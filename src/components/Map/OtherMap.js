@@ -48,7 +48,7 @@ class OtherMap extends React.Component {
 
     const markers = this.state.locations.map(location => {
       return <Marker position={{ lat: location.lat, lng: location.long }} draggable={false}><Popup position={{ lat: location.lat, lng: location.long }}>
-        Police location: <pre>{JSON.stringify({ lat: location.lat, lng: location.long }, null, 2)}</pre>
+        Bison sighting: <pre>{JSON.stringify({ lat: location.lat, lng: location.long }, null, 2)}</pre>
       </Popup> </Marker>
     });
     return (
@@ -73,7 +73,7 @@ class OtherMap extends React.Component {
           {this.state.currentPos && <Marker position={this.state.currentPos} draggable={false}>
             <Popup position={this.state.currentPos}>
               Current location: <pre>{JSON.stringify(this.state.currentPos, null, 2)}</pre>
-              <button onClick={this.handleSubmitLocation}> POPO </button>
+              <button onClick={this.handleSubmitLocation}> Big ol' Bison </button>
             </Popup>
           </Marker>}
         </LeafletMap>

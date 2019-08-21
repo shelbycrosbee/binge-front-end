@@ -19,9 +19,9 @@ class HospitalsMap extends React.Component {
       params: {
         app_id: 'm7oaMKyzvBVSCbZkqVNh',
         app_code: "wz6uMQMRHOibXv9XZSR6lg",
-        at: '45.6796,-111.0363', //user geolocation
+        at: '45.6699204861989,-111.01948130875827', //user geolocation
         cat: 'hospital-health-care-facility'
-
+        
       }
     })
       .then(response => {
@@ -52,8 +52,8 @@ class HospitalsMap extends React.Component {
     })
     return (
       <LeafletMap
-        center={[45.679201373144714, -111.04203131528274]} //user geolocation
-        zoom={13}
+        center={[45.6699204861989, -111.01948130875827]} //user geolocation
+        zoom={15}
         maxZoom={20}
         attributionControl={true}
         zoomControl={true}

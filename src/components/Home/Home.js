@@ -12,9 +12,9 @@ class Home extends React.Component {
         <Grid textAlign='center' container>
           <Grid.Row  >
             <Grid.Column>
-              <h1>Are You Done Binging?!</h1>
-              <Button text='yes, help!' redirect={"/yes"} />
-              <Button text={`hell no \\m/ :P`} redirect={"/no"} />
+              <h1>Gored Yet?!</h1>
+              <Button text='Yes, take me to a doctor!' redirect={"/yes"} />
+              <Button text={`I can get closer, where are the bison at?`} redirect={"/no"} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
