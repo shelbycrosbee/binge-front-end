@@ -52,7 +52,7 @@ export function userLogin({ email, password, username }, history) {
       })
     } catch (error) {
       console.log(error)
-      alert('Get your shit together Florida Man! Have you considered Hippie-Dippie?')
+      alert('Account Information Incorrect')
     }
   }
 }
@@ -75,7 +75,7 @@ export function addLocation({ lat, lng }) {
       })
     } catch (error) {
       console.log(error)
-      alert('Will you get your shit together Florida Man?')
+      alert('You must be logged in to use this feature.')
     }
   }
 }
